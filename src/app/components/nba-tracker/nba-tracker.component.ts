@@ -5,10 +5,10 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { NbaDataStorageService } from './../../services/nba-data-storage.service';
 import { Subscription } from 'rxjs';
 import { TeamDropdownItem } from 'src/app/types/team-dropdown-item.type';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NbaDataStorageService } from 'src/app/services/nba-data-storage/nba-data-storage.service';
 
 @Component({
   selector: 'app-nba-tracker',
@@ -41,7 +41,13 @@ export class NbaTrackerComponent implements OnInit, OnDestroy {
     if (this.teamsSubscription) this.teamsSubscription.unsubscribe();
   }
 
-  public onTrackBtnClicked() {}
+  public onTrackBtnClicked() {
+    let teamSelect: number | undefined = this.trackerForm.value.teamSelect;
+    if (!teamSelect || teamSelect === 0) return;
+    this.nbaData.GetTeamScores(+teamSelect).subscribe((scores) => {
+      console.log(scores);
+    });
+  }
 
   private buildForm(): FormGroup {
     return this.fb.group({
