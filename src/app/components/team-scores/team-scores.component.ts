@@ -31,4 +31,8 @@ export class TeamScoresComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.scoresSubscription) this.scoresSubscription.unsubscribe();
   }
+
+  public RemoveScore(i: number) {
+    this.scores.splice(i, 1);
+  }
 }

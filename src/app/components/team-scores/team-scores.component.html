@@ -1,8 +1,15 @@
-<div *ngFor="let score of scores">
+<div *ngFor="let score of scores; let i = index">
+  <hr />
+  <button
+    type="button"
+    [id]="'remove' + score.Team.abbreviation"
+    (click)="RemoveScore(i)"
+  >
+    X
+  </button>
   <h3>{{ score.Team.full_name }} [{{ score.Team.abbreviation }}]</h3>
   <span>{{ score.Team.conference }} Conference</span>
-  <hr />
-  <div class="sscore-container">
+  <div class="score-container">
     <div>
       <p>Result of the past 12 days:</p>
       <span
@@ -18,4 +25,7 @@
       <img [src]="score.ImgUrl" alt="team logo" />
     </div>
   </div>
+  <button type="button" [id]="'results' + score.Team.abbreviation">
+    See game results
+  </button>
 </div>
