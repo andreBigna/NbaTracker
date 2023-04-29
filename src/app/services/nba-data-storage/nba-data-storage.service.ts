@@ -6,12 +6,16 @@ import { RapidApiResponse } from 'src/app/interfaces/rapid-api-response.interfac
 import { ScoreTracking } from 'src/app/interfaces/score-tracking.interface';
 import { Team } from 'src/app/interfaces/team.interface';
 import { TeamDropdownItem } from 'src/app/types/team-dropdown-item.type';
+import { ScoreCalculatorService } from '../score-calculator/score-calculator.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NbaDataStorageService {
-  constructor(protected http: HttpClient) {}
+  constructor(
+    protected http: HttpClient,
+    private scoreCalc: ScoreCalculatorService
+  ) {}
   private baseUrl: Readonly<string> = 'https://free-nba.p.rapidapi.com/';
   private headers: HttpHeaders = new HttpHeaders({
     'X-RapidAPI-Key': '2QMXSehDLSmshDmRQcKUIAiQjIZAp1UvKUrjsnewgqSP6F5oBX',
@@ -46,31 +50,11 @@ export class NbaDataStorageService {
         map((response) => {
           if (!response.data || response.data.length === 0) return null;
 
-          let scores: ScoreTracking = {
-            team: this.gameHomePlayed(response.data[0], teamId)
-              ? response.data[0].home_team
-              : response.data[0].visitor_team,
-            AvgPtsConceded: 0,
-            AvgPtsScored: 0,
-            results: [],
-          };
+          let scores: ScoreTracking = this.scoreCalc.GetScoreTracking(
+            response.data,
+            teamId
+          );
 
-          let ptsScored: number;
-          let ptsConceded: number;
-          response.data.forEach((x) => {
-            ptsScored = this.gameHomePlayed(x, teamId)
-              ? x.home_team_score
-              : x.visitor_team_score;
-            ptsConceded = this.gameHomePlayed(x, teamId)
-              ? x.visitor_team_score
-              : x.home_team_score;
-            scores.AvgPtsConceded += ptsConceded;
-            scores.AvgPtsScored += ptsScored;
-            scores.results.push(ptsScored > ptsConceded ? 'W' : 'L');
-          });
-
-          scores.AvgPtsConceded = scores.AvgPtsConceded / response.data.length;
-          scores.AvgPtsScored = scores.AvgPtsScored / response.data.length;
           return scores;
         })
       );
@@ -95,9 +79,5 @@ export class NbaDataStorageService {
 
   private getFormattedDateParam(date: Date): string {
     return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-  }
-
-  private gameHomePlayed(game: Game, teamId: Number): boolean {
-    return game.home_team.id === teamId;
   }
 }

@@ -1,0 +1,13 @@
+.result {
+    color: white;
+    font-weight: 300;
+    border-radius: 50%;
+}
+
+.result-W {
+    background-color: lightgreen;
+}
+
+.result-L {
+    background-color: lightcoral;
+}

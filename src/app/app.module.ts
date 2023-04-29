@@ -6,9 +6,10 @@ import { AppComponent } from './components/app/app.component';
 import { NbaTrackerComponent } from './components/nba-tracker/nba-tracker.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TeamScoresComponent } from './components/team-scores/team-scores.component';
 
 @NgModule({
-  declarations: [AppComponent, NbaTrackerComponent],
+  declarations: [AppComponent, NbaTrackerComponent, TeamScoresComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
