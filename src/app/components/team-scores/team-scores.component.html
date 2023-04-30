@@ -1,5 +1,4 @@
-<div *ngFor="let score of scores; let i = index">
-  <hr />
+<div *ngFor="let score of scoresProvider.Scores; let i = index">
   <button
     type="button"
     [id]="'remove' + score.Team.abbreviation"
@@ -7,8 +6,7 @@
   >
     X
   </button>
-  <h3>{{ score.Team.full_name }} [{{ score.Team.abbreviation }}]</h3>
-  <span>{{ score.Team.conference }} Conference</span>
+  <app-team-scores-header [team]="score.Team"></app-team-scores-header>
   <div class="score-container">
     <div>
       <p>Result of the past 12 days:</p>
@@ -25,7 +23,11 @@
       <img [src]="score.ImgUrl" alt="team logo" />
     </div>
   </div>
-  <button type="button" [id]="'results' + score.Team.abbreviation">
+  <button
+    type="button"
+    [id]="'results' + score.Team.abbreviation"
+    [routerLink]="['/results', score.Team.abbreviation]"
+  >
     See game results
   </button>
 </div>

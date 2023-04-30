@@ -22,6 +22,7 @@ export class ScoreCalculatorService {
       AvgPtsConceded: 0,
       AvgPtsScored: 0,
       Results: [],
+      ResultsDetail: [],
       ImgUrl: '',
     };
 
@@ -31,6 +32,12 @@ export class ScoreCalculatorService {
       scores.AvgPtsConceded += ptsScored;
       scores.AvgPtsScored += ptsConceded;
       scores.Results.push(ptsScored > ptsConceded ? 'W' : 'L');
+      scores.ResultsDetail.push({
+        HomeTeam: x.home_team.abbreviation,
+        HomeTeamPoints: x.home_team_score,
+        VisitorTeam: x.visitor_team.abbreviation,
+        VisitorTeamPoints: x.visitor_team_score,
+      });
     });
 
     scores.AvgPtsConceded = scores.AvgPtsConceded / games.length;

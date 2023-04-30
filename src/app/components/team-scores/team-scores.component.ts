@@ -10,20 +10,13 @@ import { ScoresProviderService } from 'src/app/services/scores-provider/scores-p
 })
 export class TeamScoresComponent implements OnInit, OnDestroy {
   private scoresSubscription: Subscription | undefined;
-  protected scores: ScoreTracking[] = [];
 
   constructor(protected scoresProvider: ScoresProviderService) {}
 
   ngOnInit(): void {
     this.scoresSubscription = this.scoresProvider.ScoreProvided.subscribe(
       (score) => {
-        if (score) {
-          let storedScore = this.scores.findIndex(
-            (x) => x.Team.id === score.Team.id
-          );
-          if (storedScore > -1) this.scores.splice(storedScore, 1);
-          this.scores.push(score);
-        }
+        this.scoresProvider.AddScore(score);
       }
     );
   }
@@ -33,6 +26,6 @@ export class TeamScoresComponent implements OnInit, OnDestroy {
   }
 
   public RemoveScore(i: number) {
-    this.scores.splice(i, 1);
+    this.scoresProvider.RemoveScoreByIndex(i);
   }
 }

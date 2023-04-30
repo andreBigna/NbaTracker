@@ -1,0 +1,9 @@
+<ng-container *ngIf="score" class="results-detail-container">
+  <app-team-scores-header [team]="score.Team"></app-team-scores-header>
+  <p *ngFor="let detail of score.ResultsDetail">
+    <span class="results-detail-team-abbr">{{ detail.HomeTeam }}</span>
+    {{ detail.HomeTeamPoints }} - {{ detail.VisitorTeamPoints }}
+    <span class="results-detail-team-abbr">{{ detail.VisitorTeam }} </span>
+  </p>
+</ng-container>
+<button type="button" [routerLink]="['']">Back to all team stats</button>

@@ -1,0 +1,8 @@
+.results-detail-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.results-detail-team-abbr {
+    font-weight: bold;
+}
