@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Team } from 'src/app/nba-scores-tacker/shared/models/team.model';
+import { Team } from '../shared/models/team.model';
 
 @Component({
   selector: 'nba-scores-header',
