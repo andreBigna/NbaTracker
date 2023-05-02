@@ -5,11 +5,11 @@ import { ScoreTracking } from 'src/app/nba-scores-tacker/shared/models/score-tra
 import { ScoresProviderService } from '../shared/services/scores-provider.service';
 
 @Component({
-  selector: 'app-team-scores-detail',
-  templateUrl: './team-scores-detail.component.html',
-  styleUrls: ['./team-scores-detail.component.css'],
+  selector: 'nba-scores-detail',
+  templateUrl: './nba-scores-detail.component.html',
+  styleUrls: ['./nba-scores-detail.component.css'],
 })
-export class TeamScoresDetailComponent implements OnInit, OnDestroy {
+export class NbaScoresDetailComponent implements OnInit, OnDestroy {
   protected score: ScoreTracking | undefined;
   private paramsSubscription: Subscription | undefined;
   private teamCode = '';

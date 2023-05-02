@@ -3,11 +3,11 @@ import { Subscription } from 'rxjs';
 import { ScoresProviderService } from '../shared/services/scores-provider.service';
 
 @Component({
-  selector: 'app-team-scores',
-  templateUrl: './team-scores.component.html',
-  styleUrls: ['./team-scores.component.css'],
+  selector: 'nba-scores',
+  templateUrl: './nba-scores.component.html',
+  styleUrls: ['./nba-scores.component.css'],
 })
-export class TeamScoresComponent implements OnInit, OnDestroy {
+export class NbaScoresComponent implements OnInit, OnDestroy {
   private scoresSubscription: Subscription | undefined;
 
   constructor(protected scoresProvider: ScoresProviderService) {}

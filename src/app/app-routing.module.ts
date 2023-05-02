@@ -1,22 +1,24 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { NbaTrackerComponent } from './nba-scores-tacker/nba-tracker.component';
-import { TeamScoresDetailComponent } from './nba-scores-tacker/team-scores-detail/team-scores-detail.component';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    component: NbaTrackerComponent,
+    path: 'nba-tracker',
+    loadChildren: () =>
+      import('./nba-scores-tacker/nba-scores-tracker.module').then(
+        (m) => m.NbaScoresTrackerModuleModule
+      ),
   },
   {
-    path: 'results/:teamCode',
-    component: TeamScoresDetailComponent,
-    pathMatch: 'full',
+    path: '**',
+    redirectTo: 'nba-tracker',
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

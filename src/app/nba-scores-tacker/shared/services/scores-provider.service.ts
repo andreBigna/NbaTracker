@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { GameResultsDetail } from 'src/app/nba-scores-tacker/shared/models/game-results-detail.model';
 import { ScoreTracking } from 'src/app/nba-scores-tacker/shared/models/score-tracking.model';
 
 @Injectable({

@@ -12,11 +12,11 @@ import { NbaDataStorageService } from 'src/app/nba-scores-tacker/shared/services
 import { ScoresProviderService } from './shared/services/scores-provider.service';
 
 @Component({
-  selector: 'app-nba-tracker',
-  templateUrl: './nba-tracker.component.html',
-  styleUrls: ['./nba-tracker.component.css'],
+  selector: 'app-nba-scores-tracker',
+  templateUrl: './nba-scores-tracker.component.html',
+  styleUrls: ['./nba-scores-tracker.component.css'],
 })
-export class NbaTrackerComponent implements OnInit, OnDestroy {
+export class NbaScoresTrackerComponent implements OnInit, OnDestroy {
   @ViewChild('tracker', { static: true }) tracker!: TemplateRef<Object>;
   @ViewChild('loader', { static: true }) loader!: TemplateRef<Object>;
   protected currentTemplate!: TemplateRef<Object>;

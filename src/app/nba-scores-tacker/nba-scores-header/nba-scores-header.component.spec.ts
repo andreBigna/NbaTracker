@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TeamScoresHeaderComponent } from './team-scores-header.component';
+import { NbaScoresHeaderComponent } from './nba-scores-header.component';
 
 describe('TeamScoresHeaderComponent', () => {
-  let component: TeamScoresHeaderComponent;
-  let fixture: ComponentFixture<TeamScoresHeaderComponent>;
+  let component: NbaScoresHeaderComponent;
+  let fixture: ComponentFixture<NbaScoresHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TeamScoresHeaderComponent ]
-    })
-    .compileComponents();
+      declarations: [NbaScoresHeaderComponent],
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(TeamScoresHeaderComponent);
+    fixture = TestBed.createComponent(NbaScoresHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NbaTrackerComponent } from './nba-tracker.component';
+import { NbaScoresTrackerComponent } from './nba-scores-tracker.component';
 
 describe('NbaTrackerComponent', () => {
-  let component: NbaTrackerComponent;
-  let fixture: ComponentFixture<NbaTrackerComponent>;
+  let component: NbaScoresTrackerComponent;
+  let fixture: ComponentFixture<NbaScoresTrackerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NbaTrackerComponent ]
-    })
-    .compileComponents();
+      declarations: [NbaScoresTrackerComponent],
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(NbaTrackerComponent);
+    fixture = TestBed.createComponent(NbaScoresTrackerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

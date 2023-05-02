@@ -6,7 +6,7 @@
   >
     X
   </button>
-  <app-team-scores-header [team]="score.Team"></app-team-scores-header>
+  <nba-scores-header [team]="score.Team"></nba-scores-header>
   <div class="score-container">
     <div>
       <p>Result of the past 12 days:</p>
@@ -26,7 +26,7 @@
   <button
     type="button"
     [id]="'results' + score.Team.abbreviation"
-    [routerLink]="['/results', score.Team.abbreviation]"
+    [routerLink]="['results', score.Team.abbreviation]"
   >
     See game results
   </button>
