@@ -1,20 +1,20 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { Game } from 'src/app/interfaces/game.interface';
-import { RapidApiResponse } from 'src/app/interfaces/rapid-api-response.interface';
-import { ScoreTracking } from 'src/app/interfaces/score-tracking.interface';
-import { Team } from 'src/app/interfaces/team.interface';
-import { TeamDropdownItem } from 'src/app/types/team-dropdown-item.type';
-import { ScoreCalculatorService } from '../score-calculator/score-calculator.service';
+import { Game } from 'src/app/nba-scores-tacker/shared/models/game.model';
+import { RapidApiResponse } from 'src/app/nba-scores-tacker/shared/models/rapid-api-response.model';
+import { ScoreTracking } from 'src/app/nba-scores-tacker/shared/models/score-tracking.model';
+import { Team } from 'src/app/nba-scores-tacker/shared/models/team.model';
+import { TeamDropdownItem } from 'src/app/nba-scores-tacker/shared/types/team-dropdown-item.type';
+import { ScoreCalculatorService } from './score-calculator.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NbaDataStorageService {
   constructor(
-    protected http: HttpClient,
-    private scoreCalc: ScoreCalculatorService
+    private scoreCalc: ScoreCalculatorService,
+    protected http: HttpClient
   ) {}
   private baseUrl: Readonly<string> = 'https://free-nba.p.rapidapi.com/';
   private headers: HttpHeaders = new HttpHeaders({

@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ScoreTracking } from 'src/app/interfaces/score-tracking.interface';
-import { ScoresProviderService } from 'src/app/services/scores-provider/scores-provider.service';
+import { ScoresProviderService } from '../shared/services/scores-provider.service';
 
 @Component({
   selector: 'app-team-scores',

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Team } from 'src/app/interfaces/team.interface';
+import { Team } from 'src/app/nba-scores-tacker/shared/models/team.model';
 
 @Component({
   selector: 'app-team-scores-header',
@@ -7,5 +7,5 @@ import { Team } from 'src/app/interfaces/team.interface';
   styleUrls: ['./team-scores-header.component.css'],
 })
 export class TeamScoresHeaderComponent {
-  @Input('team') Team: Team | undefined;
+  @Input() team: Team | undefined = undefined;
 }

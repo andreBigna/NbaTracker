@@ -6,10 +6,10 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { TeamDropdownItem } from 'src/app/types/team-dropdown-item.type';
+import { TeamDropdownItem } from 'src/app/nba-scores-tacker/shared/types/team-dropdown-item.type';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NbaDataStorageService } from 'src/app/services/nba-data-storage/nba-data-storage.service';
-import { ScoresProviderService } from 'src/app/services/scores-provider/scores-provider.service';
+import { NbaDataStorageService } from 'src/app/nba-scores-tacker/shared/services/nba-data-storage.service';
+import { ScoresProviderService } from './shared/services/scores-provider.service';
 
 @Component({
   selector: 'app-nba-tracker',
@@ -17,13 +17,13 @@ import { ScoresProviderService } from 'src/app/services/scores-provider/scores-p
   styleUrls: ['./nba-tracker.component.css'],
 })
 export class NbaTrackerComponent implements OnInit, OnDestroy {
-  private teamsSubscription: Subscription | undefined;
-  private teamsScoresSubscription: Subscription | undefined;
-  protected teams: TeamDropdownItem[] = [];
-  protected trackerForm: FormGroup;
-  protected currentTemplate!: TemplateRef<Object>;
   @ViewChild('tracker', { static: true }) tracker!: TemplateRef<Object>;
   @ViewChild('loader', { static: true }) loader!: TemplateRef<Object>;
+  protected currentTemplate!: TemplateRef<Object>;
+  protected teams: TeamDropdownItem[] = [];
+  protected trackerForm: FormGroup;
+  private teamsScoresSubscription: Subscription | undefined;
+  private teamsSubscription: Subscription | undefined;
 
   constructor(
     private nbaData: NbaDataStorageService,

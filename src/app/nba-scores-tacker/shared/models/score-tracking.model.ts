@@ -1,6 +1,6 @@
 import { GameResult } from '../types/game-result.type';
-import { GameResultsDetail } from './game-results-detail.interface';
-import { Team } from './team.interface';
+import { GameResultsDetail } from './game-results-detail.model';
+import { Team } from './team.model';
 
 export interface ScoreTracking {
   Team: Team;

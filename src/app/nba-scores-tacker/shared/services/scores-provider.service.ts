@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { GameResultsDetail } from 'src/app/interfaces/game-results-detail.interface';
-import { ScoreTracking } from 'src/app/interfaces/score-tracking.interface';
+import { GameResultsDetail } from 'src/app/nba-scores-tacker/shared/models/game-results-detail.model';
+import { ScoreTracking } from 'src/app/nba-scores-tacker/shared/models/score-tracking.model';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +9,7 @@ import { ScoreTracking } from 'src/app/interfaces/score-tracking.interface';
 export class ScoresProviderService {
   public ScoreProvided = new Subject<ScoreTracking>();
   private scores: ScoreTracking[] = [];
+
   public get Scores(): ScoreTracking[] {
     return this.scores.slice();
   }

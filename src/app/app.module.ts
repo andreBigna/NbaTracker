@@ -4,11 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppComponent } from '../components/app/app.component';
-import { NbaTrackerComponent } from '../components/nba-tracker/nba-tracker.component';
-import { TeamScoresDetailComponent } from '../components/team-scores-detail/team-scores-detail.component';
-import { TeamScoresHeaderComponent } from '../components/team-scores-header/team-scores-header.component';
-import { TeamScoresComponent } from '../components/team-scores/team-scores.component';
+import { TeamScoresComponent } from './nba-scores-tacker/team-scores/team-scores.component';
+import { NbaTrackerComponent } from './nba-scores-tacker/nba-tracker.component';
+import { AppComponent } from './app.component';
+import { TeamScoresDetailComponent } from './nba-scores-tacker/team-scores-detail/team-scores-detail.component';
+import { TeamScoresHeaderComponent } from './nba-scores-tacker/team-scores-header/team-scores-header.component';
 
 @NgModule({
   declarations: [

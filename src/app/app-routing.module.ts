@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TeamScoresDetailComponent } from '../components/team-scores-detail/team-scores-detail.component';
-import { NbaTrackerComponent } from '../components/nba-tracker/nba-tracker.component';
+import { NbaTrackerComponent } from './nba-scores-tacker/nba-tracker.component';
+import { TeamScoresDetailComponent } from './nba-scores-tacker/team-scores-detail/team-scores-detail.component';
 
 const routes: Routes = [
   {

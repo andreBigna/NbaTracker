@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ScoreTracking } from 'src/app/interfaces/score-tracking.interface';
-import { ScoresProviderService } from 'src/app/services/scores-provider/scores-provider.service';
+import { ScoreTracking } from 'src/app/nba-scores-tacker/shared/models/score-tracking.model';
+import { ScoresProviderService } from '../shared/services/scores-provider.service';
 
 @Component({
   selector: 'app-team-scores-detail',
@@ -10,13 +10,13 @@ import { ScoresProviderService } from 'src/app/services/scores-provider/scores-p
   styleUrls: ['./team-scores-detail.component.css'],
 })
 export class TeamScoresDetailComponent implements OnInit, OnDestroy {
+  protected score: ScoreTracking | undefined;
   private paramsSubscription: Subscription | undefined;
   private teamCode = '';
-  protected score: ScoreTracking | undefined;
 
   constructor(
-    protected scoresProvider: ScoresProviderService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    protected scoresProvider: ScoresProviderService
   ) {}
 
   ngOnInit(): void {
