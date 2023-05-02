@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'nba-tracker',
+    path: '',
     loadChildren: () =>
       import('./nba-scores-tacker/nba-scores-tracker.module').then(
         (m) => m.NbaScoresTrackerModuleModule
@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'nba-tracker',
+    redirectTo: '',
   },
 ];
 
