@@ -1,13 +1,13 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable } from 'rxjs';
-import { Game } from 'src/app/nba-scores-tacker/shared/models/game.model';
-import { RapidApiResponse } from 'src/app/nba-scores-tacker/shared/models/rapid-api-response.model';
-import { ScoreTracking } from 'src/app/nba-scores-tacker/shared/models/score-tracking.model';
-import { Team } from 'src/app/nba-scores-tacker/shared/models/team.model';
-import { TeamDropdownItem } from 'src/app/nba-scores-tacker/shared/types/team-dropdown-item.type';
-import { ScoreCalculatorService } from './score-calculator.service';
 import { HttpErrorHandlerService } from './../../../shared/htt-error-handler.service';
+import { Game } from '../models/game.model';
+import { RapidApiResponse } from '../models/rapid-api-response.model';
+import { ScoreTracking } from '../models/score-tracking.model';
+import { Team } from '../models/team.model';
+import { TeamDropdownItem } from '../types/team-dropdown-item.type';
+import { ScoreCalculatorService } from './score-calculator.service';
 
 @Injectable({
   providedIn: 'root',

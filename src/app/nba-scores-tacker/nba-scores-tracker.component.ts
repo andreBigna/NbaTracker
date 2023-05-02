@@ -6,10 +6,10 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { TeamDropdownItem } from 'src/app/nba-scores-tacker/shared/types/team-dropdown-item.type';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NbaDataStorageService } from 'src/app/nba-scores-tacker/shared/services/nba-data-storage.service';
+import { NbaDataStorageService } from './shared/services/nba-data-storage.service';
 import { ScoresProviderService } from './shared/services/scores-provider.service';
+import { TeamDropdownItem } from './shared/types/team-dropdown-item.type';
 
 @Component({
   selector: 'app-nba-scores-tracker',

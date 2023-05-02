@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Game } from 'src/app/nba-scores-tacker/shared/models/game.model';
-import { ScoreTracking } from 'src/app/nba-scores-tacker/shared/models/score-tracking.model';
+import { Game } from '../models/game.model';
+import { ScoreTracking } from '../models/score-tracking.model';
 
 @Injectable({
   providedIn: 'root',

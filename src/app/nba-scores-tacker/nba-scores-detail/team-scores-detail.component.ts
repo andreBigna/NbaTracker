@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ScoreTracking } from 'src/app/nba-scores-tacker/shared/models/score-tracking.model';
 import { ScoresProviderService } from '../shared/services/scores-provider.service';
+import { ScoreTracking } from '../shared/models/score-tracking.model';
 
 @Component({
   selector: 'nba-scores-detail',

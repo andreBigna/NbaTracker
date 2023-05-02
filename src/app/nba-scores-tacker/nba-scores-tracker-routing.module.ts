@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { NbaScoresTrackerComponent } from './nba-scores-tracker.component';
 import { NbaScoresDetailComponent } from './nba-scores-detail/team-scores-detail.component';
