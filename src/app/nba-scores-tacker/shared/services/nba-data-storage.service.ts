@@ -1,12 +1,13 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable } from 'rxjs';
 import { Game } from 'src/app/nba-scores-tacker/shared/models/game.model';
 import { RapidApiResponse } from 'src/app/nba-scores-tacker/shared/models/rapid-api-response.model';
 import { ScoreTracking } from 'src/app/nba-scores-tacker/shared/models/score-tracking.model';
 import { Team } from 'src/app/nba-scores-tacker/shared/models/team.model';
 import { TeamDropdownItem } from 'src/app/nba-scores-tacker/shared/types/team-dropdown-item.type';
 import { ScoreCalculatorService } from './score-calculator.service';
+import { HttpErrorHandlerService } from './../../../shared/htt-error-handler.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +15,7 @@ import { ScoreCalculatorService } from './score-calculator.service';
 export class NbaDataStorageService {
   constructor(
     private scoreCalc: ScoreCalculatorService,
+    private errorHandler: HttpErrorHandlerService,
     protected http: HttpClient
   ) {}
   private baseUrl: Readonly<string> = 'https://free-nba.p.rapidapi.com/';
@@ -36,7 +38,8 @@ export class NbaDataStorageService {
             });
           }
           return teams;
-        })
+        }),
+        catchError(this.errorHandler.HandleError)
       );
   }
 
@@ -48,7 +51,10 @@ export class NbaDataStorageService {
       })
       .pipe(
         map((response) => {
-          if (!response.data || response.data.length === 0) return null;
+          if (!response.data || response.data.length === 0) {
+            alert('Sorry, no scores available for this team.');
+            return null;
+          }
 
           let scores: ScoreTracking = this.scoreCalc.GetScoreTracking(
             response.data,
@@ -56,7 +62,8 @@ export class NbaDataStorageService {
           );
 
           return scores;
-        })
+        }),
+        catchError(this.errorHandler.HandleError)
       );
   }
 
