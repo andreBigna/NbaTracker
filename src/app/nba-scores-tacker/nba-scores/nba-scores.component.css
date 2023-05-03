@@ -7,4 +7,21 @@
     color: white;
     font-weight: 300;
     border-radius: 50%;
+    margin-left: 5%;
+}
+
+.avg-scores {
+    font-weight: bold;
+}
+
+.team-logo {
+    max-width: 300px;
+}
+
+.team-tile {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    max-width: 500px;
+    background-color: lightsteelblue;
 }
