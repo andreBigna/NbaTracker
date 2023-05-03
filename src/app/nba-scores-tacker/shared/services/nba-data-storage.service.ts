@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, map, Observable } from 'rxjs';
 import { HttpErrorHandlerService } from './../../../shared/htt-error-handler.service';
 import { Game } from '../models/game.model';
-import { RapidApiResponse } from '../models/rapid-api-response.model';
+import { RapidApiResponse } from '../../../shared/rapid-api-response.model';
 import { ScoreTracking } from '../models/score-tracking.model';
 import { Team } from '../models/team.model';
 import { TeamDropdownItem } from '../types/team-dropdown-item.type';
