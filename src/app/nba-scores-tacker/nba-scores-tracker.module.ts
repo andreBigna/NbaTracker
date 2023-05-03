@@ -7,6 +7,7 @@ import { NbaScoresComponent } from './nba-scores/nba-scores.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NbaScoresTrackerRoutingModule } from './nba-scores-tracker-routing.module';
+import { ResultHighlighterDirective } from './shared/directives/result-highlighter.directive';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { NbaScoresTrackerRoutingModule } from './nba-scores-tracker-routing.modu
     NbaScoresComponent,
     NbaScoresDetailComponent,
     NbaScoresHeaderComponent,
+    ResultHighlighterDirective,
   ],
   imports: [
     RouterModule,

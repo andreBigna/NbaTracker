@@ -13,11 +13,13 @@
       <span
         *ngFor="let result of score.Results"
         class="result"
-        [ngClass]="'result-' + result"
+        [appResultHighlighter]="result"
         >{{ result }}</span
       >
-      <span>Avg pts scored: {{ score.AvgPtsScored }}</span>
-      <span>Avg pts conceded: {{ score.AvgPtsConceded }}</span>
+      <span>Avg pts scored: {{ score.AvgPtsScored | number : "1.0-0" }}</span>
+      <span
+        >Avg pts conceded: {{ score.AvgPtsConceded | number : "1.0-0" }}</span
+      >
     </div>
     <div>
       <img [src]="score.ImgUrl" alt="team logo" />
